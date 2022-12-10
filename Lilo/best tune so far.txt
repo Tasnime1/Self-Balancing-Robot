@@ -1,0 +1,11 @@
+//motors speed
+//-100 ~ 100
+//PID Initialization
+double Kp = 0.25, Ki = 0.002, Kd = 0.0025;
+
+
+//where it balances around y-axis; pitch angle*180/pi
+double input, output, setpoint= 0; 
+
+-
+-
