@@ -9,7 +9,10 @@ double Kp = 0.25, Ki = 0.002, Kd = 0.0025;
 //where it balances around y-axis; pitch angle*180/pi
 double input, output, setpoint= 0;  
 //creating an instance of PID to start using it
-PID PID(&input, &output, &setpoint, Kp, Ki, Kd, PID::Direct);
+//PID PID(&input, &output, &setpoint, Kp, Ki, Kd, PID::Direct);
+
+//UNCOMMENT TO DAMP OVERSHOOTS
+PID PID(&input, &output, &setpoint, Kp, Ki, Kd, P_ON_M, PID::Direct);
 
 void PID_setup()
 {
