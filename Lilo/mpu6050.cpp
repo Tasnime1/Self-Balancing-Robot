@@ -1,4 +1,3 @@
-#include "HardwareSerial.h"
 #include "mpu6050.h"
 #include "I2Cdev.h"
 #include "MPU6050_6Axis_MotionApps20.h"
@@ -6,7 +5,7 @@
 //DONE!!
 
 /**********************************************
-**Code from Jeff Rowberg's library; MPU6050.h**
+**Code from Jeff Rowberg's library; mpu6050.h**
 ***********************************************/
 
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
