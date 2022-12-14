@@ -17,8 +17,11 @@
 #define PIN_IN4 8 //motion control
 
 //Defining motor output limits
-#define minimumSpeed 80 //motors barely work at such a low speed
+#define minimumSpeed 20 //motors barely work at such a low speed
 #define maximumSpeed 255 //maximum output for motors
+
+#define speedFactorA  0.6
+#define speedFactorB 0.5
 
 
 //Initializing motors' input and enable pins

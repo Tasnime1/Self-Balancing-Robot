@@ -13,8 +13,7 @@ void App_init(void) {
 //PROGRAM FLOW/DRIVER FUNCTION
 void App_start(void) {
   //frequently update MPU readings
-  mpu_update();
-
+  mpu_update();      
   //getting latest inclination angle from MPU sensor
   float input = return_pitch();
   //no mpu data - performing PID calculations and output to motors
@@ -40,13 +39,14 @@ void App_start(void) {
   // Serial.println(return_pitch());
   // Serial.print("roll: ");
   // Serial.println(return_roll());
-  //Serial.println(output);
+  //Serial.println(output); 
+
 }
 
 void App_test(void) {
   //UNCOMMENT ONE AT A TIME TO TEST A CERTAIN DRIVER; mpu6050, motors or PID Controller
   //Motors speed control test through serial monitor
-  test_motors();
+  //test_motors();
 
   //Inclination angle test
   //test_mpu6050();
@@ -54,4 +54,7 @@ void App_test(void) {
   //PID output test; input should be taken from mpu first then sent to PID to be tested
   //float input = get_pid_output();
   //test_pid(input);
+  
+  //test ultrasonic
+  test_ultrasonic();
 }

@@ -37,8 +37,8 @@ void move(int speed)
     if ((speed == currentSpeed) && (direction==currentDirection)) return;
 
     //setting speed sent to both wheels
-    analogWrite(PIN_ENA, speed);
-    analogWrite(PIN_ENB, speed);
+    analogWrite(PIN_ENA, speed * speedFactorA);
+    analogWrite(PIN_ENB, speed * speedFactorB);
 
     //detecting right ouptut direction on motor input pins through (direction) variable
     if(direction<0)

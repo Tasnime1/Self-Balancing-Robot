@@ -4,15 +4,15 @@
 //but you know tuning parameters is never done:")
 
 //PID Initialization
-double Kp = 0.25, Ki = 0.002, Kd = 0.0025;
+double Kp = 50, Ki = 60, Kd = 1.4;
 
 //where it balances around y-axis; pitch angle*180/pi
-double input, output, setpoint= 0;  
+double input, output, setpoint= 179.92;  
 //creating an instance of PID to start using it
-//PID PID(&input, &output, &setpoint, Kp, Ki, Kd, PID::Direct);
+PID PID(&input, &output, &setpoint, Kp, Ki, Kd, PID::Direct);
 
 //UNCOMMENT TO DAMP OVERSHOOTS
-PID PID(&input, &output, &setpoint, Kp, Ki, Kd, P_ON_M, PID::Direct);
+//PID PID(&input, &output, &setpoint, Kp, Ki, Kd, P_ON_M, PID::Direct);
 
 void PID_setup()
 {
@@ -21,7 +21,7 @@ void PID_setup()
   //Run PID to get a new output every 10 milliseconds
   PID.SetSampleTime(10);
   //By default it's from 0->255, so change it to indicate inclination direction as well as speed
-  PID.SetOutputLimits(-120, 120); 
+  PID.SetOutputLimits(-255, 255); 
 }
 
 //Running PID Algorithm on output from mpu sensor; inclination angle
