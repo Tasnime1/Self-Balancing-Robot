@@ -6,6 +6,11 @@ double Kp = 0.25, Ki = 0.002, Kd = 0.0025;
 
 //where it balances around y-axis; pitch angle*180/pi
 double input, output, setpoint= 0; 
+-
+-
 
--
--
+double Kp = 45, Ki = 60, Kd = 1.4;
+
+//where it balances around y-axis; pitch angle*180/pi
+double input, output, setpoint= 177.51; 
+(-255-255)

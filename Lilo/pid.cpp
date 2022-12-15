@@ -4,10 +4,10 @@
 //but you know tuning parameters is never done:")
 
 //PID Initialization
-double Kp = 45, Ki = 60, Kd = 1.4;
+double Kp = 50, Ki = 60, Kd = 1.4;
 
 //where it balances around y-axis; pitch angle*180/pi
-double input, output, setpoint= 177.51;  
+double input, output, setpoint= 179;  
 //creating an instance of PID to start using it
 PID PID(&input, &output, &setpoint, Kp, Ki, Kd, PID::Direct);
 
