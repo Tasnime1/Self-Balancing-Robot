@@ -65,13 +65,14 @@ void mpu_setup() {
     
     // supply your own gyro offsets here, scaled for min sensitivity
     //127	50	4 -1522	-130	1502	
+    // 220 76 -85 1788
     
     mpu.setXGyroOffset(220);
-    mpu.setYGyroOffset(76);
+    mpu.setYGyroOffset(46);
     mpu.setZGyroOffset(-85);
     //mpu.setXAccelOffset(-1522);
     //mpu.setYAccelOffset(-130);
-    mpu.setZAccelOffset(1788);
+    mpu.setZAccelOffset(1800);
     
 
     // make sure it worked (returns 0 if so)
@@ -123,7 +124,7 @@ void mpu_update() {
 }
 
 /**
-void mpu_update()
+bool mpu_update()
 {
   
     // if programming failed, don't try to do anything
@@ -134,8 +135,7 @@ void mpu_update()
     {
         //no mpu data - performing PID calculations and output to motors
         
-        //return true;
-        return;
+        return true;
         
     }
 
@@ -173,20 +173,10 @@ void mpu_update()
        
         //Serial.println(input);        
     }
-   //return false;
+   return false;
 }**/
-
-float return_yaw()
-{
-  return (ypr[0] * 180/M_PI + 180);
-}
 
 float return_pitch()
 {
   return (ypr[1] * 180/M_PI + 180);
-}
-
-float return_roll()
-{
-  return (ypr[2] * 180/M_PI +180);
 }

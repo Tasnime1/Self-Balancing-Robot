@@ -20,11 +20,8 @@ void dmpDataReady();
 void mpu_setup();
 //Function to constantly update mpu readings from DMP
 void mpu_update();
-//ADD COMMENT HERE
-void mpu_clearBuffer();
+
 //Returning required angles to be input for PID
 float return_pitch(); //around Y
-float return_roll(); //around X
-float return_yaw(); //around Z
 
 #endif /* MPU6050_H */
