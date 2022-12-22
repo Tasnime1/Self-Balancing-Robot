@@ -1,10 +1,24 @@
+/************************************************************************************************
+*            FILE: MOTORS.CPP
+*          DRIVER: MOTORS
+*     DESCRIPTION: Source file for all MOTOR-related functions declarations
+*
+************************************************************************************************/
+
+
+/*- INCLUDES
+************************************************************************************************/
 #include "Arduino.h"
 #include "motors.h"
 
-//DONEE!!
 
-int currentSpeed, currentDirection;
+/*- STATIC VARIABLES
+************************************************************************************************/
+static int currentSpeed, currentDirection;
 
+
+/*- FUNCTIONS' DECLARATION
+************************************************************************************************/
 void motors_setup()
 {
   // Motor A initialization
@@ -20,8 +34,6 @@ void motors_setup()
 
 void move(int speed)
 {
-  //by default direction is forward
-  //*************************************************************MAKE IT AN ENUM OR HASH DEFINE IT *************************************************************
   int direction = 1;
     //if speed sent is in opposite direction then change variables accordingly to indicate right motor direction
     if (speed < 0)
@@ -29,7 +41,7 @@ void move(int speed)
         direction = -1;
         speed= -1*speed;
     }
-    //ensures speed is with range(50~255); less than 50 won't even move the motors.
+    //ensures speed is with range(20~255) or according to what's define as minimumSpeed
     speed = max(speed, minimumSpeed); //maximize over minimum speed
     speed = min(speed, maximumSpeed); //minimize over maximum speed
     

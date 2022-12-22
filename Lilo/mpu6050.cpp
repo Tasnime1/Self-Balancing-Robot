@@ -1,20 +1,26 @@
+/************************************************************************************************
+*            FILE: MPU6050.CPP
+*          DRIVER: MPU6050
+*     DESCRIPTION: Source file for all MPU6050-related functions declarations,
+*                  Code from Jeff Rowberg's library; mpu6050.h
+*
+************************************************************************************************/
+
+
+/*- INCLUDES
+************************************************************************************************/
 #include "mpu6050.h"
 #include "I2Cdev.h"
 #include "MPU6050_6Axis_MotionApps20.h"
-
-//DONE!!
-
-/**********************************************
-**Code from Jeff Rowberg's library; mpu6050.h**
-***********************************************/
 
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
     #include "Wire.h"
 #endif
 
-MPU6050 mpu;
 
-bool blinkState = false;
+/*- STATIC GLOBAL VARIABLES
+************************************************************************************************/
+MPU6050 mpu;
 
 // MPU control/status vars
 bool dmpReady = false;  // set true if DMP init was successful
@@ -29,13 +35,19 @@ Quaternion q;           // [w, x, y, z]         quaternion container
 VectorFloat gravity;    // [x, y, z]            gravity vector
 float euler[3];         // [psi, theta, phi]    Euler angle container
 float ypr[3];           // [yaw, pitch, roll]   yaw/pitch/roll container and gravity vector
-
 volatile bool mpuInterrupt = false;     // indicates whether MPU interrupt pin has gone high
+
+
+/*- ISR DECLARATION
+************************************************************************************************/
 void dmpDataReady()
 {
     mpuInterrupt = true;
 }
 
+
+/*- FUNCTIONS' DECLARATION
+************************************************************************************************/
 void mpu_setup() {
   #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
         Wire.begin();
@@ -123,58 +135,6 @@ void mpu_update() {
     }
 }
 
-/**
-bool mpu_update()
-{
-  
-    // if programming failed, don't try to do anything
-    if (!dmpReady) return false;
-
-    // wait for MPU interrupt or extra packet(s) available
-    while (!mpuInterrupt && fifoCount < packetSize)
-    {
-        //no mpu data - performing PID calculations and output to motors
-        
-        return true;
-        
-    }
-
-    // reset interrupt flag and get INT_STATUS byte
-    mpuInterrupt = false;
-    mpuIntStatus = mpu.getIntStatus();
-
-    // get current FIFO count
-    fifoCount = mpu.getFIFOCount();
-
-    // check for overflow (this should never happen unless our code is too inefficient)
-    if ((mpuIntStatus & 0x10) || fifoCount == 1024)
-    {
-        // reset so we can continue cleanly
-        mpu.resetFIFO();
-        //Serial.println(F("FIFO overflow!"));
-
-    // otherwise, check for DMP data ready interrupt (this should happen frequently)
-    }
-    else if (mpuIntStatus & 0x02)
-    {
-        // wait for correct available data length, should be a VERY short wait
-        while (fifoCount < packetSize) fifoCount = mpu.getFIFOCount();
-
-        // read a packet from FIFO
-        mpu.getFIFOBytes(fifoBuffer, packetSize);
-        
-        // track FIFO count here in case there is > 1 packet available
-        // (this lets us immediately read more without waiting for an interrupt)
-        fifoCount -= packetSize;
-
-        mpu.dmpGetQuaternion(&q, fifoBuffer);
-        mpu.dmpGetGravity(&gravity, &q);
-        mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-       
-        //Serial.println(input);        
-    }
-   return false;
-}**/
 
 float return_pitch()
 {

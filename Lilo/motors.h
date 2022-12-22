@@ -1,12 +1,23 @@
+/************************************************************************************************
+*            FILE: MOTORS.H
+*          DRIVER: MOTORS
+*     DESCRIPTION: HEADER file for all MOTOR-related functions prototypes and constants
+*
+************************************************************************************************/
+
 #ifndef MOTORS_H
 #define MOTORS_H
 
-//DONE!!!
 
+/*- INCLUDES
+************************************************************************************************/
 #include <Arduino.h>
 
+
+/*- CONSTANTS
+************************************************************************************************/
+
 // Right motor connections
-//to be adjusted according to actual pins!!
 #define PIN_ENA 3 //must be a PWM Pin | Speed Control.
 #define PIN_IN1 4 //motion control
 #define PIN_IN2 5 //motion control
@@ -23,6 +34,9 @@
 #define speedFactorA  0.6
 #define speedFactorB 0.5
 
+
+/*- FUNCTIONS PROTOTYPES
+************************************************************************************************/
 
 //Initializing motors' input and enable pins
 void motors_setup(void);

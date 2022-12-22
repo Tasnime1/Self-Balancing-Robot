@@ -1,8 +1,19 @@
+/************************************************************************************************
+*            FILE: PID.CPP
+*          DRIVER: PID
+*     DESCRIPTION: Source file for all MPID-related functions declarations
+*
+************************************************************************************************/
+
+
+/*- INCLUDES
+************************************************************************************************/
 #include "pid.h"
 
-//DONE!!
-//but you know tuning parameters is never done:")
 
+
+/*- GLOBAL VARIABLES
+************************************************************************************************/
 //PID Initialization
 double Kp = 60 , Ki = 140, Kd = 1.5; //45-50 60 1.4-1.5--- 65 140 1.4
 
@@ -11,9 +22,10 @@ double input, output, setpoint= 190;
 //creating an instance of PID to start using it
 PID PID(&input, &output, &setpoint, Kp, Ki, Kd, PID::Direct);
 
-//UNCOMMENT TO DAMP OVERSHOOTS
-//PID PID(&input, &output, &setpoint, Kp, Ki, Kd, P_ON_M, PID::Direct);
 
+
+/*- FUNCTIONS' DECLARATIONS
+************************************************************************************************/
 void PID_setup()
 {
   //By default it's manual so you have to change it

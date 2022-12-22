@@ -1,7 +1,19 @@
-#include "HardwareSerial.h"
+/************************************************************************************************
+*            FILE: TEST.CPP
+*          DRIVER: TEST
+*     DESCRIPTION: Source file for all TEST-related functions declarations
+*
+************************************************************************************************/
+
+
+/*- INCLUDES
+************************************************************************************************/
 #include "test.h"
 
-//ULTRASONIC SENSOR TEST LEFT!
+
+
+/*- FUNCTOINS DECLARATIONS
+************************************************************************************************/
 
 //Speed control test and input is from serial monitor
 void test_motors()
@@ -25,13 +37,6 @@ void test_mpu6050()
 {
   mpu_update();
   Serial.println(return_pitch());    
-}
-
-void test_ultrasonic()
-{
-  Serial.print("Distance is: ");
-  Serial.print(calc_distance_ultrasonic());
-  Serial.println("cm");
 }
 
 //Printing PID output to check it's actually working and computing results
