@@ -11,5 +11,3 @@
 :star2: You can find more about the tuning process and other stuff in the documentaion file.
 
 :star2: Here's a video for the robot in action:arrow_forward:https://rb.gy/kzzo0
-
-:star2: A fully detailed documentation can be found too! </br></br>
