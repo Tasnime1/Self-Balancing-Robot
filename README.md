@@ -1,4 +1,4 @@
-# Self-Balancing-Robot :car:
+# Self-Balancing-Robot:car:
 
 :star2: two-wheel hoverboard-like self balancing robot using PID Controller.
 </br></br>
